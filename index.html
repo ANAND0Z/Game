@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME</title>
 <style> 
 #myDIV,#myDIV1 {
   width: 150px;
@@ -20,28 +23,63 @@
   padding: 10px;
 }
 #paper1,#rock1,#scissors1,#paper2,#rock2,#scissors2{
+  width: 150px;
+  height: 150px;
   display: none;
+}
+.button{
+  width: 100px;
+  height: 50px;
+}
+@media only screen and (max-width: 600px) {
+  #paper1,#rock1,#scissors1,#paper2,#rock2,#scissors2{
+  display: none;
+  width: 100px;
+  height: 100px;
+}
+.button{
+  width: 20%;
+  height: 40px;
+}
+#myDIV,#myDIV1 {
+  width: 100px;
+  height: 100px;
+  background-color:black;
+  color: white;
+  display:inline-block;
+  margin: 1px;
+}
+#button1,#box,#con{
+ text-align: center;
+ margin: 10px;
+}
+#content{
+  background-color: aqua;
+  color: white;
+  display: inline-block;
+  padding: 2px;
+}
 }
 </style>
 </head>
 <body>
 <div id="button1">
-<button onclick="myFunction1(a='rock1')" style="height: 50px;width: 100px;">rock</button>
-<button onclick="myFunction2(a='paper1')" style="height: 50px;width: 100px;">paper</button>
-<button onclick="myFunction3(a='scissors1')" style="height: 50px;width: 100px;">scissors</button>
+<button onclick="myFunction1(a='rock1')" class="button">rock</button>
+<button onclick="myFunction2(a='paper1')" class="button">paper</button>
+<button onclick="myFunction3(a='scissors1')" class="button">scissors</button>
 </div>
 <div id="box">
   <h1>YOU</h1>
 <div id="myDIV">
-    <div><img id="paper1" src="./assests\images/paper.jpg" width="150" height="150"></div>
-    <div><img id="rock1" src="./assests\images/rock.jpg" width="150" height="150"></div>
-    <div><img id="scissors1" src="./assests\images/scissors.jpg" width="150" height="150"></div>
+    <div><img id="paper1" src="./assests\images/paper.jpg" ></div>
+    <div><img id="rock1" src="./assests\images/rock.jpg" ></div>
+    <div><img id="scissors1" src="./assests\images/scissors.jpg"></div>
 </div>
 <h1>COMPUTER</h1>
 <div id="myDIV1">
-    <div><img id="paper2" src="./assests\images/paper.jpg" width="150" height="150"></div>
-    <div><img id="rock2" src="./assests\images/rock.jpg" width="150" height="150"></div>
-    <div><img id="scissors2" src="./assests\images/scissors.jpg" width="150" height="150"></div>
+    <div><img id="paper2" src="./assests\images/paper.jpg"></div>
+    <div><img id="rock2" src="./assests\images/rock.jpg" ></div>
+    <div><img id="scissors2" src="./assests\images/scissors.jpg" ></div>
 </div>
 </div>
 <div id="con">
@@ -60,21 +98,21 @@
   var a1,b,point=0;
 function myFunction1(a) {
   a1="rock";
-  document.getElementById(a).style.display = "block";
+  document.getElementById(a).style.display = "inline-block";
   document.getElementById("paper1").style.display = "none";
   document.getElementById("scissors1").style.display = "none";
   myFunction4();
 }
 function myFunction2(a) {
   a1="paper";
-  document.getElementById(a).style.display = "block";
+  document.getElementById(a).style.display = "inline-block";
   document.getElementById("rock1").style.display = "none";
   document.getElementById("scissors1").style.display = "none";
   myFunction4();
 }
 function myFunction3(a) {
   a1="scissors";
-  document.getElementById(a).style.display = "block";
+  document.getElementById(a).style.display = "inline-block";
   document.getElementById("paper1").style.display = "none";
   document.getElementById("rock1").style.display = "none";
   myFunction4();
@@ -96,21 +134,21 @@ function myFunction4() {
   }
 function myFunction11() {
   b="rock";
-  document.getElementById("rock2").style.display = "block";
+  document.getElementById("rock2").style.display = "inline-block";
   document.getElementById("paper2").style.display = "none";
   document.getElementById("scissors2").style.display = "none";
   content();
 }
 function myFunction12() {
   b="paper";
-  document.getElementById("paper2").style.display = "block";
+  document.getElementById("paper2").style.display = "inline-block";
   document.getElementById("rock2").style.display = "none";
   document.getElementById("scissors2").style.display = "none";
   content();
 }
 function myFunction13() {
   b="scissors";
-  document.getElementById("scissors2").style.display = "block";
+  document.getElementById("scissors2").style.display = "inline-block";
   document.getElementById("paper2").style.display = "none";
   document.getElementById("rock2").style.display = "none";
   content();
