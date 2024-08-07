@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#myDIV,#myDIV1 {
+  width: 150px;
+  height: 150px;
+  background-color:black;
+  color: white;
+  display:inline-block;
+}
+#button1,#box,#con{
+ text-align: center;
+ margin: 10px;
+}
+#content{
+  background-color: aqua;
+  color: white;
+  display: inline-block;
+  padding: 10px;
+}
+#paper1,#rock1,#scissors1,#paper2,#rock2,#scissors2{
+  display: none;
+}
+</style>
+</head>
+<body>
+<div id="button1">
+<button onclick="myFunction1(a='rock1')" style="height: 50px;width: 100px;">rock</button>
+<button onclick="myFunction2(a='paper1')" style="height: 50px;width: 100px;">paper</button>
+<button onclick="myFunction3(a='scissors1')" style="height: 50px;width: 100px;">scissors</button>
+</div>
+<div id="box">
+  <h1>YOU</h1>
+<div id="myDIV">
+    <div><img id="paper1" src="./assests\images/paper.jpg" width="150" height="150"></div>
+    <div><img id="rock1" src="./assests\images/rock.jpg" width="150" height="150"></div>
+    <div><img id="scissors1" src="./assests\images/scissors.jpg" width="150" height="150"></div>
+</div>
+<h1>COMPUTER</h1>
+<div id="myDIV1">
+    <div><img id="paper2" src="./assests\images/paper.jpg" width="150" height="150"></div>
+    <div><img id="rock2" src="./assests\images/rock.jpg" width="150" height="150"></div>
+    <div><img id="scissors2" src="./assests\images/scissors.jpg" width="150" height="150"></div>
+</div>
+</div>
+<div id="con">
+<div id="content">
+  <table>
+  <tr><td><h1 id="game">GAME</h1></td><td><h1 id="gamest">STARTS</h1></td></tr>
+  <tr><td><h1 id="pointtext">POINTS</h1></td><td><h1 id="pointvalue">0</h1></td></tr>
+  </table>
+</div>
+</div>
+<script>
+  const game=document.getElementById("game");
+  const gamest=document.getElementById("gamest");
+  const pointtext=document.getElementById("pointtext");
+  const pointvalue=document.getElementById("pointvalue");
+  var a1,b,point=0;
+function myFunction1(a) {
+  a1="rock";
+  document.getElementById(a).style.display = "block";
+  document.getElementById("paper1").style.display = "none";
+  document.getElementById("scissors1").style.display = "none";
+  myFunction4();
+}
+function myFunction2(a) {
+  a1="paper";
+  document.getElementById(a).style.display = "block";
+  document.getElementById("rock1").style.display = "none";
+  document.getElementById("scissors1").style.display = "none";
+  myFunction4();
+}
+function myFunction3(a) {
+  a1="scissors";
+  document.getElementById(a).style.display = "block";
+  document.getElementById("paper1").style.display = "none";
+  document.getElementById("rock1").style.display = "none";
+  myFunction4();
+}
+function myFunction4() {
+   let a=Math.random()*10;
+   if(3>a)
+   {
+      myFunction11();
+   }
+   else if(7>a)
+   {
+      myFunction12();
+   }
+   else
+   {
+      myFunction13();
+   }
+  }
+function myFunction11() {
+  b="rock";
+  document.getElementById("rock2").style.display = "block";
+  document.getElementById("paper2").style.display = "none";
+  document.getElementById("scissors2").style.display = "none";
+  content();
+}
+function myFunction12() {
+  b="paper";
+  document.getElementById("paper2").style.display = "block";
+  document.getElementById("rock2").style.display = "none";
+  document.getElementById("scissors2").style.display = "none";
+  content();
+}
+function myFunction13() {
+  b="scissors";
+  document.getElementById("scissors2").style.display = "block";
+  document.getElementById("paper2").style.display = "none";
+  document.getElementById("rock2").style.display = "none";
+  content();
+} 
+function content(){
+if(a1==b)
+{
+  point=point;
+  pointvalue.textContent=point;
+}
+else if((a1=="rock" && b=="scissors") || (a1=="scissors" && b=="paper") || (a1=="paper" && b=="rock"))
+{
+  point+=1;
+  pointvalue.textContent=point;
+}
+else{
+  gamest.textContent="OVER";
+  setTimeout(alert1,100);
+}
+function alert1()
+{
+  alert("GAME OVER");
+  point=0;
+  pointvalue.textContent=point; 
+  gamest.textContent="STARTS";
+}
+}
+</script>
+</body>
+</html>
